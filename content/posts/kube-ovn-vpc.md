@@ -17,11 +17,11 @@ author= ["kl"]
 
 为了直观清晰，先上图：
 
-![image.png](/img/kube-ovn-vpc_1.png)
+![kube-ovn-vpc_1.png](/img/kube-ovn-vpc_1.png)
 
 VPC、Subnet是kube-ovn中的核心概念，对应到ovn层面就是三层逻辑路由器、二层逻辑交换机。kube-ovn通过这样的对应关系来构建容器网络的逻辑网络拓扑。
 
-## 默认VPC网络**：解读 kube-ovn 默认网络架构**
+## 默认VPC网络
 
 在 kube-ovn 的部署中，默认容器网络通过创建一个默认 VPC 网络实现。以 Overlay 模式为例，系统会自动生成以下资源：
 
@@ -88,7 +88,7 @@ switch dc21dda6-7741-48d5-ab24-044a8793d92d (join)
         addresses: ["9e:55:09:21:ff:77 100.64.0.3"]        
 ```
 
-## 自定义VPC网络**：扩展与隔离的灵活设计**
+## 自定义VPC网络
 
 在默认 VPC 网络之外，**kube-ovn** 支持创建自定义 VPC 网络。与默认网络相比，自定义 VPC 网络的最大特点是完全隔离：
 
@@ -100,7 +100,7 @@ switch dc21dda6-7741-48d5-ab24-044a8793d92d (join)
 
 自定义 VPC 的网络拓扑设计与默认 VPC 网络相同，但逻辑上是完全分离的。
 
-## 外部网络**：自定义 VPC 的网关设计**
+## 外部网络
 
 虽然自定义 VPC 的网段可以自由配置，但其默认状态下与默认网络、主机网络完全隔离，仅支持自身网段内的通信。为了扩展其能力，kube-ovn 设计了 **自定义 VPC 网关**，实现自定义 VPC 对集群外部的访问。
 
@@ -122,7 +122,7 @@ switch dc21dda6-7741-48d5-ab24-044a8793d92d (join)
 
 最后我们就可通过在网关pod里下发特定的路由、iptabels 规则，实现EIP、FIP等功能。
 
-## Underlay 网络**：直接对接物理网络**
+## Underlay 网络
 
 underlay网络没有VPC概念，kube-ovn设计了`ProviderNetwork` 提供了主机网卡到物理网络映射的抽象；`Vlan` 提供了vlan和`ProviderNetwork`的绑定。最后创建 `subnet`只需要绑定`vlan`资源即可；
 
