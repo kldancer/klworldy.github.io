@@ -6,14 +6,35 @@
     <description>Recent content on kl &#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 26 Sep 2024 14:45:04 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jul 2025 15:08:26 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>探索SDN实操_01_Linux bridge &amp; OVS bridge</title>
+      <link>http://localhost:1313/posts/sdn-study-01_linux-bridge-ovs-bridge/</link>
+      <pubDate>Tue, 15 Jul 2025 15:08:26 +0800</pubDate>
+      <guid>http://localhost:1313/posts/sdn-study-01_linux-bridge-ovs-bridge/</guid>
+      <description>前言 准备开个新坑吧，系统的过一遍SDN领域的相关技术，记录一些实验实操。&#xA;使用 Linux Bridge 互联 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 # 1. 创建网络命名空间 sudo ip netns add ns1 sudo ip netns add ns2 # 2. 创建 veth pair sudo ip link add veth1 type veth peer name veth1_br sudo ip link add veth2 type veth peer name veth2_br # 3.</description>
+    </item>
+    <item>
+      <title>探究kube-ovn 逻辑网络数据架构</title>
+      <link>http://localhost:1313/posts/kube-ovn-logicalnetwork-data-architecture/</link>
+      <pubDate>Sun, 06 Apr 2025 10:56:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/kube-ovn-logicalnetwork-data-architecture/</guid>
+      <description>同vpc、subnet不同node的pod流量 同vpc子网不同node下pod在OVN逻辑层面：&#xA;在vpc逻辑路由器下，存在子网逻辑交换机，pod在该交换机下均有对应的逻辑端口，逻辑端口绑定信息中也记录着端口所在的节点chassis ，逻辑数据路径，逻辑端口编号等信息。以上信息在ovs中转化为对应流表。从而支持同vpc子网下pod的跨节点流量。&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 root@l1:~# kubectl get pod -owide NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATES nginx-o-2-6bf6f745-ssdqp 1/1 Running 0 29m 11.</description>
+    </item>
+    <item>
+      <title>kube-ovn vpc网络设计概览</title>
+      <link>http://localhost:1313/posts/kube-ovn-vpc/</link>
+      <pubDate>Mon, 20 Jan 2025 15:00:52 +0800</pubDate>
+      <guid>http://localhost:1313/posts/kube-ovn-vpc/</guid>
+      <description>前言 临近过年，总算是闲下来了，博主自9月份入职新公司后，一直在做容器网络相关的工作，有了一些积累，乘着年前闲暇做做梳理。&#xA;一个CNI 网络插件的设计，我认为可以大致分为控制面的设计和数据面的设计。如何管理IPAM、如何维护k8s cluster、node、pod、svc等等信息属于控制面，如何设计并维护容器网络的数据路径datapath这属于数据面；本篇文章，我想探讨一下kube-ovn这个项目对容器网络数据路径的设计。&#xA;数据面总体设计拓扑 为了直观清晰，先上图：&#xA;VPC、Subnet是kube-ovn中的核心概念，对应到ovn层面就是三层逻辑路由器、二层逻辑交换机。kube-ovn通过这样的对应关系来构建容器网络的逻辑网络拓扑。&#xA;默认VPC网络 在 kube-ovn 的部署中，默认容器网络通过创建一个默认 VPC 网络实现。以 Overlay 模式为例，系统会自动生成以下资源：&#xA;VPC：ovn-cluster 子网：ovn-default 和 join 它们的逻辑关系如图所示可以类比为一个真实的路由器连接两个交换机。&#xA;容器网络之间通信 ovn-cluster 路由器通过其ovn-cluster-ovn-default端口连接ovn-default交换机，端口的 IP 地址为 10.16.0.1/16，这也是默认容器网络的网段。&#xA;在默认网络中，Pod 的主机网络侧 veth 设备被接入到 OVS 虚拟网桥 br-int，相当于 Pod 内部网络侧的 veth 设备被连接到 ovn-default 交换机的某个端口。&#xA;这种网络拓扑的设计使得同一子网内的 Pod 像连接在同一交换机上的设备，可以直接通过二层网络通信。&#xA;容器网络与主机网络通信 join子网是专用于默认容器网络与主机网络之间的通信而设计的。&#xA;首先，在每个节点上创建 ovn0 网络设备，并将其接入 OVS 虚拟网桥 br-int。在逻辑层中，这表现为 ovn-cluster 路由器通过 ovn-cluster-join 端口连接到 join 交换机，而 join 交换机分别与各节点的 ovn0 设备相连。&#xA;其次，在ovn-cluster路由器中存在路由规则：ovn-nbctl lr-route-add router &amp;quot;0.0.0.0/0&amp;quot; 100.64.0.1 ，该规则指示所有未匹配到其他路由的容器网络流量发送到 join 网段。同时node主机上也存在路由ip route add 10.</description>
+    </item>
     <item>
       <title>从kube-ovn中vpc网关EIP到Netfilter Hook优先级探讨</title>
       <link>http://localhost:1313/posts/kube-ovn-eip-netfilter/</link>
       <pubDate>Thu, 26 Sep 2024 14:45:04 +0800</pubDate>
       <guid>http://localhost:1313/posts/kube-ovn-eip-netfilter/</guid>
-      <description>前言 博主近期工作上需要和kube-ovn打交道，后续可能会涉及到基于kube-ovn的二开，因此需要详细了解其特性。昨天在工作中接到了一个关于**“k8s平台中容器部署的虚拟机中，先ping着外网，然后绑定EIP成功后还是不通，需要把ping关了重新ping才生效，解绑EIP也是如此“**的问题分析。&#xA;VPC kube-ovn中关于VPC的设计，引用原文：&#xA;VPC 主要用于有多租户网络强隔离的场景，部分 Kubernetes 网络功能在多租户网络下存在冲突。 例如节点和 Pod 互访，NodePort 功能，基于网络访问的健康检查和 DNS 能力在多租户网络场景暂不支持。 为了方便常见 Kubernetes 的使用场景，Kube-OVN 默认 VPC 做了特殊设计，该 VPC 下的 Subnet 可以满足 Kubernetes 规范。用户自定义 VPC 支持本文档介绍的静态路由，EIP 和 NAT 网关等功能。 常见隔离需求可通过默认 VPC 下的网络策略和子网 ACL 实现，在使用自定义 VPC 前请明确是否需要 VPC 级别的隔离，并了解自定义 VPC 下的限制。 在 Underlay 网络下，物理交换机负责数据面转发，VPC 无法对 Underlay 子网进行隔离。&#xA;可见kube-ovn中VPC的设计是针对Overlay网络的多租户隔离需求，像单租户下的Overlay网络、Underlay网络分别可以通过k8s中的网络策略、Underlay的Vlan实现隔离需求。&#xA;自定义VPC主要是围绕一个VPC网关实现EIP、自定义路由、自定义内部负载均衡、自定义vpc-dns等功能，本次主要设计其EIP功能，拓扑架构如图：&#xA;VPC Nat Gateway 从具体的CR资源来看其对应关系：&#xA;[root@cd56 ~]# kubectl get vpc-nat-gateways.kubeovn.io NAME VPC SUBNET LANIP eip-p7cs4r5y vpc-iwm2hkn4 subnet-skwgfk6s 13.13.0.253 [root@cd56 ~]# kubectl get vpc-nat-gateways.</description>
+      <description>前言 博主近期工作上需要和kube-ovn打交道，后续可能会涉及到基于kube-ovn的二开，因此需要详细了解其特性。昨天在工作中接到了一个关于k8s平台中容器部署的虚拟机中，先ping着外网，然后绑定EIP成功后还是不通，需要把ping关了重新ping才生效，解绑EIP也是如此的问题分析。&#xA;VPC kube-ovn中关于VPC的设计，引用原文：&#xA;VPC 主要用于有多租户网络强隔离的场景，部分 Kubernetes 网络功能在多租户网络下存在冲突。 例如节点和 Pod 互访，NodePort 功能，基于网络访问的健康检查和 DNS 能力在多租户网络场景暂不支持。 为了方便常见 Kubernetes 的使用场景，Kube-OVN 默认 VPC 做了特殊设计，该 VPC 下的 Subnet 可以满足 Kubernetes 规范。用户自定义 VPC 支持本文档介绍的静态路由，EIP 和 NAT 网关等功能。 常见隔离需求可通过默认 VPC 下的网络策略和子网 ACL 实现，在使用自定义 VPC 前请明确是否需要 VPC 级别的隔离，并了解自定义 VPC 下的限制。 在 Underlay 网络下，物理交换机负责数据面转发，VPC 无法对 Underlay 子网进行隔离。&#xA;可见kube-ovn中VPC的设计是针对Overlay网络的多租户隔离需求，像单租户下的Overlay网络、Underlay网络分别可以通过k8s中的网络策略、Underlay的Vlan实现隔离需求。&#xA;自定义VPC主要是围绕一个VPC网关实现EIP、自定义路由、自定义内部负载均衡、自定义vpc-dns等功能，本次主要设计其EIP功能，拓扑架构如图：&#xA;VPC Nat Gateway 从具体的CR资源来看其对应关系：&#xA;1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 [root@cd56 ~]# kubectl get vpc-nat-gateways.</description>
     </item>
     <item>
       <title>Linux 内核数据流概览初探</title>

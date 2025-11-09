@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="558f0388-5671-4341-a2bc-fac7bfe8cd8d" name="更改" comment="更新： kube-ovn-logicalnetwork-data-architecture.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/posts/kube-ovn-logicalnetwork-data-architecture.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/kube-ovn-logicalnetwork-data-architecture.md" afterDir="false" />
-    </list>
+    <list default="true" id="558f0388-5671-4341-a2bc-fac7bfe8cd8d" name="更改" comment="更新： sdn-study-01_linux-bridge-ovs-bridge.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,15 +27,15 @@
     &quot;accountId&quot;: &quot;5d416335-110e-4989-b6fa-c4fe4387b1de&quot;
   }
 }</component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "configuredContexts": [
+  <component name="KubernetesApiProvider">{
+  &quot;configuredContexts&quot;: [
     {
-      "name": "kubernetes-admin@kubernetes",
-      "kubeConfigUrl": "file:///Users/ykl/.kube/config"
+      &quot;name&quot;: &quot;kubernetes-admin@kubernetes&quot;,
+      &quot;kubeConfigUrl&quot;: &quot;file:///Users/ykl/.kube/config&quot;
     }
   ],
-  "isMigrated": true
-}]]></component>
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -54,6 +51,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
@@ -62,7 +60,8 @@
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/ykl/data/code/klworldy.github.io",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/xiaoy/code/klworldy.github.io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,12 +85,22 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-d297c17c1fbd-57c114c3cede-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-243.24978.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-GO-243.24978.59" />
+        <option value="bundled-gosdk-f466f9b0953e-146d08934cbf-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-252.26830.102" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-GO-252.26830.102" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="558f0388-5671-4341-a2bc-fac7bfe8cd8d" name="更改" comment="更新： kube-ovn-logicalnetwork-data-architecture.md" />
+      <created>1762671280397</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762671280397</updated>
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -116,7 +125,8 @@
     <MESSAGE value="更新：背景图片添加" />
     <MESSAGE value="更新：1.添加giscus评论；2.修改标签样式；时间线样式；" />
     <MESSAGE value="更新： kube-ovn-logicalnetwork-data-architecture.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新： kube-ovn-logicalnetwork-data-architecture.md" />
+    <MESSAGE value="更新： sdn-study-01_linux-bridge-ovs-bridge.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新： sdn-study-01_linux-bridge-ovs-bridge.md" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
