@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="558f0388-5671-4341-a2bc-fac7bfe8cd8d" name="更改" comment="更新： sdn-study-01_linux-bridge-ovs-bridge.md" />
+    <list default="true" id="558f0388-5671-4341-a2bc-fac7bfe8cd8d" name="更改" comment="更新： sdn-study-02_multi-tenant-network.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +126,8 @@
     <MESSAGE value="更新：1.添加giscus评论；2.修改标签样式；时间线样式；" />
     <MESSAGE value="更新： kube-ovn-logicalnetwork-data-architecture.md" />
     <MESSAGE value="更新： sdn-study-01_linux-bridge-ovs-bridge.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新： sdn-study-01_linux-bridge-ovs-bridge.md" />
+    <MESSAGE value="更新： sdn-study-02_multi-tenant-network.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新： sdn-study-02_multi-tenant-network.md" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
