@@ -60,7 +60,7 @@ sudo ip link del veth1_br # veth1_br 会自动删除 veth1
 sudo ip link del veth2_br # veth2_br 会自动删除 veth2
 ```
 
-![img.png](/img/sdn-study-01_linux-bridge-ovs-bridge_1.png)
+![sdn-study-01_linux-bridge-ovs-bridge_1.png](/img/sdn-study-01_linux-bridge-ovs-bridge_1.png)
 
 结果如下：
 ```bash
@@ -185,7 +185,7 @@ sudo ip link del veth3_ovs # veth3_ovs 会自动删除 veth3
 sudo ip link del veth4_ovs # veth4_ovs 会自动删除 veth4
 ```
 
-![img.png](/img/sdn-study-01_linux-bridge-ovs-bridge_2.png)
+![sdn-study-01_linux-bridge-ovs-bridge_2.png](/img/sdn-study-01_linux-bridge-ovs-bridge_2.png)
 
 结果如下：
 ```bash

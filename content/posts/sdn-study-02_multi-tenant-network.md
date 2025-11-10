@@ -124,7 +124,7 @@ sudo ip link del vethB2_ovs 2>/dev/null
 echo "Cleanup complete."
 ```
 
-![img.png](/img/sdn-study-02_multi-tenant-network.png)
+![sdn-study-02_multi-tenant-network.png](/img/sdn-study-02_multi-tenant-network.png)
 
 ```bash
 root@t1:~# ip a

@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="558f0388-5671-4341-a2bc-fac7bfe8cd8d" name="更改" comment="更新： sdn-study-02_multi-tenant-network.md">
-      <change afterPath="$PROJECT_DIR$/content/posts/img/sdn-study-01_linux-bridge-ovs-bridge_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/posts/img/sdn-study-01_linux-bridge-ovs-bridge_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/posts/img/sdn-study-02_multi-tenant-network.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/posts/img/sdn-study-03_openFlow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/posts/sdn-study-03_openFlow.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/posts/sdn-study-04_sdn-ryu.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/posts/sdn-study-01_linux-bridge-ovs-bridge.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/sdn-study-01_linux-bridge-ovs-bridge.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/posts/sdn-study-02_multi-tenant-network.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/sdn-study-02_multi-tenant-network.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/posts/sdn-study-03_openFlow.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/sdn-study-03_openFlow.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/posts/sdn-study-04_sdn-ryu.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/sdn-study-04_sdn-ryu.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +54,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.GoLinterPluginOnboarding": "true",
+    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -71,7 +68,7 @@
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/xiaoy/code/klworldy.github.io",
+    "last_opened_file_path": "D:/work/code/data/klworldy.github.io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,8 +93,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-f466f9b0953e-146d08934cbf-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-252.26830.102" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-GO-252.26830.102" />
+        <option value="bundled-gosdk-f466f9b0953e-146d08934cbf-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-252.27397.100" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-GO-252.27397.100" />
       </set>
     </attachedChunks>
   </component>

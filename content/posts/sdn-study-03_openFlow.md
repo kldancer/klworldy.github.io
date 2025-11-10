@@ -294,4 +294,4 @@ root@t1:~#
 ```
 
 ## 整体拓扑
-![img.png](/img/sdn-study-03_openFlow.png.png)
+![sdn-study-03_openFlow.png](/img/sdn-study-03_openFlow.png)
